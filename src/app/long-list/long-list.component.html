@@ -1,3 +1,51 @@
-<p>
-  long-list works!
-</p>
+<div>
+  <h1>Longlist Generator</h1>
+  <mat-vertical-stepper>
+    <mat-step [stepControl]="firstFormGroup">
+      <form action="" [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Client Name</ng-template>
+        <mat-form-field>
+          <input matInput placeholder="ex. GenBioMed" formControlName="firstCtrl">
+        </mat-form-field>
+        <div><button mat-button matStepperNext>Next</button></div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+      <form action="" [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Project Name</ng-template>
+        <mat-form-field>
+          <input matInput placeholder="ex. ALTRUISM" formControlName="secondCtrl">
+        </mat-form-field>
+        <div><button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button></div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="thirdFormGroup">
+      <form action="" [formGroup]="thirdFormGroup">
+        <ng-template matStepLabel>Project Date</ng-template>
+        <mat-form-field>
+          <input matInput placeholder="ex. 05/05/2019" formControlName="thirdCtrl">
+        </mat-form-field>
+        <div><button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button></div>
+      </form>
+    </mat-step>
+    <mat-step>
+        <ng-template matStepLabel>Upload</ng-template>
+        You are now done.
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button id="myUpload" mat-button (click)="uploadExcelFile()">Upload</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </mat-step>
+      <mat-step>
+          <ng-template matStepLabel>Generate</ng-template>
+          Confirm Details are Correct!
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button (click)="generateLongList()">Generate</button>
+          </div>
+        </mat-step>
+  </mat-vertical-stepper>
+</div>

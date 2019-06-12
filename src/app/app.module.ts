@@ -5,18 +5,35 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BiNavComponent } from './bi-nav/bi-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatGridListModule, MatCardModule, MatMenuModule } from '@angular/material';
+import { 
+  MatToolbarModule, 
+  MatButtonModule, 
+  MatSidenavModule, 
+  MatIconModule, 
+  MatListModule, 
+  MatGridListModule, 
+  MatCardModule, 
+  MatMenuModule, 
+  MatStepperModule,
+  MatFormFieldModule,
+  MatInputModule,
+} from '@angular/material';
 import { BiHomepageComponent } from './bi-homepage/bi-homepage.component';
 import { AppRoutingModule } from './app-routing.module';
 import { APP_BASE_HREF } from '@angular/common';
 import { LongListComponent } from './long-list/long-list.component';
+import { SuffixScreenerComponent } from './suffix-screener/suffix-screener.component';
+import { DrugBrainComponent } from './drug-brain/drug-brain.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     BiNavComponent,
     BiHomepageComponent,
-    LongListComponent
+    LongListComponent,
+    SuffixScreenerComponent,
+    DrugBrainComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,7 +47,11 @@ import { LongListComponent } from './long-list/long-list.component';
     MatGridListModule,
     MatCardModule,
     MatMenuModule,
+    MatStepperModule,
+    MatInputModule,
+    MatFormFieldModule,
     AppRoutingModule,
+    ReactiveFormsModule,
   ],
   providers: [
     { provide: APP_BASE_HREF, useValue: '/home' },
