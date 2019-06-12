@@ -5,12 +5,18 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BiNavComponent } from './bi-nav/bi-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatGridListModule, MatCardModule, MatMenuModule } from '@angular/material';
+import { BiHomepageComponent } from './bi-homepage/bi-homepage.component';
+import { AppRoutingModule } from './app-routing.module';
+import { APP_BASE_HREF } from '@angular/common';
+import { LongListComponent } from './long-list/long-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BiNavComponent
+    BiNavComponent,
+    BiHomepageComponent,
+    LongListComponent
   ],
   imports: [
     BrowserModule,
@@ -21,8 +27,14 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, Mat
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    MatGridListModule,
+    MatCardModule,
+    MatMenuModule,
+    AppRoutingModule,
   ],
-  providers: [],
+  providers: [
+    { provide: APP_BASE_HREF, useValue: '/home' },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
