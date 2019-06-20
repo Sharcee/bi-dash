@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BiNavComponent } from './bi-nav/bi-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { 
   MatToolbarModule, 
   MatButtonModule, 
@@ -52,6 +53,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatFormFieldModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    FlexLayoutModule
   ],
   providers: [
     { provide: APP_BASE_HREF, useValue: '/home' },

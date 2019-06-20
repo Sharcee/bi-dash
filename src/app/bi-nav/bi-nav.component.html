@@ -1,21 +1,24 @@
-<mat-sidenav-container class="sidenav-container" mode="push">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport
-    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'"
-    [opened]="(isHandset$ | async) === false">
-    <mat-toolbar color="primary">Creative Tools</mat-toolbar>
+<mat-sidenav-container class="sidenav-container" mode="push" style="background-color: #ecf0f1">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+    <mat-toolbar style="background-color: #34495e">
+      <a routerLink="/" class="navText" style="text-decoration: none">Creative Tools </a>
+    </mat-toolbar>
     <mat-nav-list>
       <a mat-list-item routerLink="longlist">Longlist Generator</a>
       <a mat-list-item routerLink="suffixscreener">Suffix Screener</a>
       <a mat-list-item routerLink="drugbrain">DrugBrain</a>
     </mat-nav-list>
   </mat-sidenav>
-  <mat-sidenav-content>
-    <mat-toolbar color="primary">
-      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-      </button>
-      <span><a routerLink="/" id="HomeButton">BrandInstitute</a></span>
-    </mat-toolbar>
+  <mat-sidenav-content fxFlex style="background-color: #95a5a6">
+    <aside>
+      <mat-toolbar style="background-color: #34495e">
+        <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+        <span><a routerLink="/" class="navText" style="text-decoration: none">BrandInstitute</a></span>
+      </mat-toolbar>
+    </aside>
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

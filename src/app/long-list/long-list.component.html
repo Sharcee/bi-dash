@@ -1,4 +1,99 @@
-<div>
+<!-- Begin Longlist Container -->
+<div class="container" fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap="20px">
+  <!-- Title Div -->
+
+  <div>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Longlist Generator</mat-card-title>
+        <mat-card-subtitle>The tool everyone needs but not the one they deserve</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-vertical-stepper>
+
+          <!-- Client Name -->
+          <div>
+            <mat-step [stepControl]="firstFormGroup">
+              <form action="" [formGroup]="firstFormGroup">
+                <ng-template matStepLabel>Client Name</ng-template>
+                <mat-form-field>
+                  <input matInput placeholder="ex. GenBioMed" formControlName="firstCtrl">
+                </mat-form-field>
+                <div><button mat-button matStepperNext>Next</button></div>
+              </form>
+            </mat-step>
+          </div>
+
+          <!-- Project Name -->
+          <div>
+            <mat-step [stepControl]="secondFormGroup">
+              <form action="" [formGroup]="secondFormGroup">
+                <ng-template matStepLabel>Project Name</ng-template>
+                <mat-form-field>
+                  <input matInput placeholder="ex. ALTRUISM" formControlName="secondCtrl">
+                </mat-form-field>
+                <div><button mat-button matStepperPrevious>Back</button>
+                  <button mat-button matStepperNext>Next</button></div>
+              </form>
+            </mat-step>
+          </div>
+
+          <!-- Project Date -->
+          <div>
+            <mat-step [stepControl]="thirdFormGroup">
+              <form action="" [formGroup]="thirdFormGroup">
+                <ng-template matStepLabel>Project Date</ng-template>
+                <mat-form-field>
+                  <input matInput placeholder="ex. 05/05/2019" formControlName="thirdCtrl">
+                </mat-form-field>
+                <div><button mat-button matStepperPrevious>Back</button>
+                  <button mat-button matStepperNext>Next</button></div>
+              </form>
+            </mat-step>
+          </div>
+
+          <!-- Upload Excel File -->
+          <div>
+            <mat-step>
+              <ng-template matStepLabel>Upload Excel File</ng-template>
+              <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button (click)="openInput()">Select File to Upload</button>
+                <input id="fileInput" hidden type="file" (change)="uploadExcelFile($event.target.files)" name="file"
+                  accept=".csv,.xlsx">
+                <button mat-button matStepperNext>Next</button>
+              </div>
+            </mat-step>
+          </div>
+
+        </mat-vertical-stepper>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button (click)="generateLongList()">Generate</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+  <div>
+    <mat-card>
+      <mat-card-header>
+          <mat-card-title>Excel File</mat-card-title>
+          <mat-card-subtitle>Format longlists accordingly</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content fxLayout="row" fxLayoutAlign="center center">
+          <img mat-card-image src="../../assets/xlformat.PNG">      
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button>Download Template</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+
+</div>
+
+
+<!-- <div class="container-ll" flex>
   <h1>Longlist Generator</h1>
   <mat-vertical-stepper>
     <mat-step [stepControl]="firstFormGroup">
@@ -31,21 +126,84 @@
       </form>
     </mat-step>
     <mat-step>
-        <ng-template matStepLabel>Upload</ng-template>
-        You are now done.
-        <div>
-          <button mat-button matStepperPrevious>Back</button>
-          <button id="myUpload" mat-button (click)="uploadExcelFile()">Upload</button>
-          <button mat-button matStepperNext>Next</button>
-        </div>
-      </mat-step>
-      <mat-step>
-          <ng-template matStepLabel>Generate</ng-template>
-          Confirm Details are Correct!
-          <div>
-            <button mat-button matStepperPrevious>Back</button>
-            <button mat-button (click)="generateLongList()">Generate</button>
-          </div>
-        </mat-step>
+      <ng-template matStepLabel>Upload</ng-template>
+      Upload the Excel File
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <label for="file">Choose File</label>
+        <input type="file" id="file" (change)="uploadExcelFile($event.target.files)">
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Generate</ng-template>
+      Confirm Details are correct!
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="generateLongList()">Generate</button>
+      </div>
+    </mat-step>
   </mat-vertical-stepper>
-</div>
+</div> -->
+
+
+
+<!-- 
+<div class="flex-row" fxFlex style="background-color: brown" fxLayout="column" fxLayoutAlign="space-around end" >
+  <div class="flex-row" fxFlex style="background-color: brown" fxLayout="row" fxLayoutGap="20" fxLayoutAlign="space-around end" >
+    <div fxFlex="10" style="background-color: blue">Text</div>
+    <div fxFlex="20" style="background-color: orange">Text</div>
+    <div fxFlex="20" style="background-color: red">Text</div>
+    <div fxFlex="20" style="background-color: green">Text</div>
+    <div fxFlex="20" style="background-color: lightcoral">Text</div>
+    <div fxFlex="10" style="background-color: lightgreen">Text</div>
+  </div>
+  <div class="flex-row" fxFlex style="background-color: brown" fxLayout="row" fxAlign>
+    <div fxFlex="10" style="background-color: blue">Text</div>
+    <div fxFlex="20" style="background-color: orange">Text</div>
+    <div fxFlex="20" style="background-color: red">Text</div>
+    <div fxFlex="20" style="background-color: green">Text</div>
+    <div fxFlex="20" style="background-color: lightcoral">Text</div>
+    <div fxFlex="10" style="background-color: lightgreen">Text</div>
+  </div>
+  <div class="flex-row" fxFlex style="background-color: brown" fxLayout="row" fxAlign>
+    <div fxFlex="10" style="background-color: blue">Text</div>
+    <div fxFlex="20" style="background-color: orange">Text</div>
+    <div fxFlex="20" style="background-color: red">Text</div>
+    <div fxFlex="20" style="background-color: green">Text</div>
+    <div fxFlex="20" style="background-color: lightcoral">Text</div>
+    <div fxFlex="10" style="background-color: lightgreen">Text</div>
+  </div>
+  <div class="flex-row" fxFlex style="background-color: brown" fxLayout="row" fxAlign>
+    <div fxFlex="10" style="background-color: blue">Text</div>
+    <div fxFlex="20" style="background-color: orange">Text</div>
+    <div fxFlex="20" style="background-color: red">Text</div>
+    <div fxFlex="20" style="background-color: green">Text</div>
+    <div fxFlex="20" style="background-color: lightcoral">Text</div>
+    <div fxFlex="10" style="background-color: lightgreen">Text</div>
+  </div>
+  <div class="flex-row" fxFlex style="background-color: brown" fxLayout="row" fxAlign>
+    <div fxFlex="10" style="background-color: blue">Text</div>
+    <div fxFlex="20" style="background-color: orange">Text</div>
+    <div fxFlex="20" style="background-color: red">Text</div>
+    <div fxFlex="20" style="background-color: green">Text</div>
+    <div fxFlex="20" style="background-color: lightcoral">Text</div>
+    <div fxFlex="10" style="background-color: lightgreen">Text</div>
+  </div>
+  <div class="flex-row" fxFlex style="background-color: brown" fxLayout="row" fxAlign>
+    <div fxFlex="10" style="background-color: blue">Text</div>
+    <div fxFlex="20" style="background-color: orange">Text</div>
+    <div fxFlex="20" style="background-color: red">Text</div>
+    <div fxFlex="20" style="background-color: green">Text</div>
+    <div fxFlex="20" style="background-color: lightcoral">Text</div>
+    <div fxFlex="10" style="background-color: lightgreen">Text</div>
+  </div>
+  <div class="flex-row" fxFlex style="background-color: brown" fxLayout="row" fxAlign>
+    <div fxFlex="10" style="background-color: blue">Text</div>
+    <div fxFlex="20" style="background-color: orange">Text</div>
+    <div fxFlex="20" style="background-color: red">Text</div>
+    <div fxFlex="20" style="background-color: green">Text</div>
+    <div fxFlex="20" style="background-color: lightcoral">Text</div>
+    <div fxFlex="10" style="background-color: lightgreen">Text</div>
+  </div>
+</div> -->

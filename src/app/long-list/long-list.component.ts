@@ -29,4 +29,10 @@ export class LongListComponent implements OnInit {
     //   fourthCtrl: ['', Validators.required]
     // });
   }
+
+  uploadExcelFile(event){
+      console.log(event);
+      document.getElementById("fileInput").click();
+  }
+
 }
