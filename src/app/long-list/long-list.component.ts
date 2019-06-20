@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-long-list',
@@ -7,21 +7,25 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
   styleUrls: ['./long-list.component.css']
 })
 export class LongListComponent implements OnInit {
+  listForm;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
   // fourthFormGroup: FormGroup;
 
-  constructor(private _formBuilder: FormBuilder) {}
+  constructor(private fb: FormBuilder) {
+
+
+  }
 
   ngOnInit() {
-    this.firstFormGroup = this._formBuilder.group({
+    this.firstFormGroup = this.fb.group({
       firstCtrl: ['', Validators.required]
     });
-    this.secondFormGroup = this._formBuilder.group({
+    this.secondFormGroup = this.fb.group({
       secondCtrl: ['', Validators.required]
     });
-    this.thirdFormGroup = this._formBuilder.group({
+    this.thirdFormGroup = this.fb.group({
       thirdCtrl: ['', Validators.required]
     });
     // this.fourthFormGroup = this._formBuilder.group({
