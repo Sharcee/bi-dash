@@ -7,7 +7,6 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
   styleUrls: ['./long-list.component.css']
 })
 export class LongListComponent implements OnInit {
-  isLinear = false;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
@@ -35,4 +34,8 @@ export class LongListComponent implements OnInit {
       document.getElementById("fileInput").click();
   }
 
+  generateLongList(event) {
+    console.log(event)
+    
+  }
 }

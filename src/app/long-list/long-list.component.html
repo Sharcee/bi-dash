@@ -1,5 +1,5 @@
 <!-- Begin Longlist Container -->
-<div class="container" fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap="20px">
+<div class="container" fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap="10px">
 
   <!-- Funnel System -->
   <div>
@@ -8,8 +8,9 @@
         <mat-card-title>Longlist Generator</mat-card-title>
         <mat-card-subtitle>The tool everyone needs but not the one they deserve</mat-card-subtitle>
       </mat-card-header>
+
       <mat-card-content>
-        <mat-vertical-stepper>
+        <mat-vertical-stepper linear>
 
           <!-- Client Name -->
           <div>
@@ -44,7 +45,9 @@
               <form action="" [formGroup]="thirdFormGroup">
                 <ng-template matStepLabel>Project Date</ng-template>
                 <mat-form-field>
-                  <input matInput placeholder="ex. 05/05/2019" formControlName="thirdCtrl">
+                  <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="thirdCtrl">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
                 </mat-form-field>
                 <div><button mat-button matStepperPrevious>Back</button>
                   <button mat-button matStepperNext>Next</button></div>
@@ -57,11 +60,10 @@
             <mat-step>
               <ng-template matStepLabel>Upload Excel File</ng-template>
               <div>
-                <button mat-button matStepperPrevious>Back</button>
-                <button mat-button (click)="openInput()">Select File to Upload</button>
-                <input id="fileInput" hidden type="file" (change)="uploadExcelFile($event.target.files)" name="file"
+                <!-- <button mat-button (click)="openInput()">Select File to Upload</button> -->
+                <input id="fileInput" type="file" (change)="uploadExcelFile($event.target.files)" name="file"
                   accept=".csv,.xlsx">
-                <button mat-button matStepperNext>Next</button>
+                <button mat-button matStepperPrevious>Back</button>
               </div>
             </mat-step>
           </div>
@@ -78,12 +80,10 @@
   <div>
     <mat-card>
       <mat-card-header>
-          <mat-card-title>Excel File</mat-card-title>
-          <mat-card-subtitle>Format longlists accordingly</mat-card-subtitle>
+        <mat-card-title>Excel File Format</mat-card-title>
+        <mat-card-subtitle>Format accordingly...</mat-card-subtitle>
       </mat-card-header>
-      <mat-card-content fxLayout="row" fxLayoutAlign="center center">
-          <img mat-card-image src="../../assets/xlformat.PNG">      
-      </mat-card-content>
+      <img mat-card-image src="../../assets/xlformat.PNG">
       <mat-card-actions>
         <button mat-button>Download Template</button>
       </mat-card-actions>

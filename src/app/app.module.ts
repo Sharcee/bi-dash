@@ -18,6 +18,8 @@ import {
   MatStepperModule,
   MatFormFieldModule,
   MatInputModule,
+  MatNativeDateModule,
+  MatDatepickerModule,
 } from '@angular/material';
 import { BiHomepageComponent } from './bi-homepage/bi-homepage.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -41,6 +43,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     LayoutModule,
     MatToolbarModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
@@ -57,6 +61,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   providers: [
     { provide: APP_BASE_HREF, useValue: '/home' },
+    MatDatepickerModule,
   ],
   bootstrap: [AppComponent]
 })
