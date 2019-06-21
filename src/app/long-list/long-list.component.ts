@@ -28,9 +28,9 @@ export class LongListComponent implements OnInit {
 
   generateLongList() {
     if (this.listForm.valid) {
-      console.log(this.listForm.value)
+      console.log(JSON.stringify(this.listForm.value));
     } else {
-      this._snack.open("Double-check the form", "Close", { duration: 2000 });
+      this._snack.open("Double-check the form", "Close", { duration: 5000 });
       Object.keys(this.listForm.controls).forEach(field => {
         const control = this.listForm.get(field);
         control.markAsTouched({ onlySelf: true });
