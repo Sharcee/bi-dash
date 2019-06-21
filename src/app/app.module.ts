@@ -20,6 +20,7 @@ import {
   MatInputModule,
   MatNativeDateModule,
   MatDatepickerModule,
+  MatSnackBarModule,
 } from '@angular/material';
 import { BiHomepageComponent } from './bi-homepage/bi-homepage.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -46,6 +47,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatDatepickerModule,
     MatNativeDateModule,
     MatButtonModule,
+    MatSnackBarModule,
     MatSidenavModule,
     MatIconModule,
     MatListModule,

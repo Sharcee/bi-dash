@@ -14,11 +14,11 @@
 
           <!-- Client Name -->
           <div>
-            <mat-step [stepControl]="firstFormGroup">
-              <form action="" [formGroup]="firstFormGroup">
+            <mat-step [stepControl]="company">
+              <form action="" [formGroup]="listForm">
                 <ng-template matStepLabel>Client Name</ng-template>
                 <mat-form-field>
-                  <input matInput placeholder="ex. GenBioMed" formControlName="firstCtrl">
+                  <input matInput placeholder="ex. GenBioMed" formControlName="company">
                 </mat-form-field>
                 <div><button mat-button matStepperNext>Next</button></div>
               </form>
@@ -27,11 +27,11 @@
 
           <!-- Project Name -->
           <div>
-            <mat-step [stepControl]="secondFormGroup">
-              <form action="" [formGroup]="secondFormGroup">
+            <mat-step [stepControl]="project">
+              <form action="" [formGroup]="listForm">
                 <ng-template matStepLabel>Project Name</ng-template>
                 <mat-form-field>
-                  <input matInput placeholder="ex. ALTRUISM" formControlName="secondCtrl">
+                  <input matInput placeholder="ex. ALTRUISM" formControlName="project">
                 </mat-form-field>
                 <div><button mat-button matStepperPrevious>Back</button>
                   <button mat-button matStepperNext>Next</button></div>
@@ -41,36 +41,39 @@
 
           <!-- Project Date -->
           <div>
-            <mat-step [stepControl]="thirdFormGroup">
-              <form action="" [formGroup]="thirdFormGroup">
+            <mat-step [stepControl]="date">
+              <form action="" [formGroup]="listForm">
                 <ng-template matStepLabel>Project Date</ng-template>
                 <mat-form-field>
-                  <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="thirdCtrl">
+                  <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="date">
                   <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                   <mat-datepicker #picker></mat-datepicker>
                 </mat-form-field>
-                <div><button mat-button matStepperPrevious>Back</button>
-                  <button mat-button matStepperNext>Next</button></div>
+                <div><button mat-button matStepperPrevious ty>Back</button>
+                  <button mat-button matStepperNext ty>Next</button></div>
               </form>
             </mat-step>
           </div>
 
           <!-- Upload Excel File -->
           <div>
-            <mat-step>
-              <ng-template matStepLabel>Upload Excel File</ng-template>
-              <div>
-                <!-- <button mat-button (click)="openInput()">Select File to Upload</button> -->
-                <input id="fileInput" type="file" (change)="uploadExcelFile($event.target.files)" name="file"
-                  accept=".csv,.xlsx">
-                <button mat-button matStepperPrevious>Back</button>
-              </div>
+            <mat-step [stepControl]="file">
+              <form action="" [formGroup]="listForm">
+                <ng-template matStepLabel>Upload Excel File</ng-template>
+                <div>
+                  <!-- <button mat-button (click)="openInput()">Select File to Upload</button> -->
+                  <input id="fileInput" type="file" (change)="uploadExcelFile($event.target.files)" name="file"
+                    accept=".csv,.xlsx" formControlName="file">
+                  <button mat-button matStepperPrevious>Back</button>
+                </div>
+              </form>
             </mat-step>
           </div>
 
         </mat-vertical-stepper>
       </mat-card-content>
       <mat-card-actions>
+        <button mat-button (click)="resetForm()">Reset</button>
         <button mat-button (click)="generateLongList()">Generate</button>
       </mat-card-actions>
     </mat-card>
