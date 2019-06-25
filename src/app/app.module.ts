@@ -21,6 +21,7 @@ import {
   MatNativeDateModule,
   MatDatepickerModule,
   MatSnackBarModule,
+  MatRippleModule,
 } from '@angular/material';
 import { BiHomepageComponent } from './bi-homepage/bi-homepage.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -29,6 +30,8 @@ import { LongListComponent } from './long-list/long-list.component';
 import { SuffixScreenerComponent } from './suffix-screener/suffix-screener.component';
 import { DrugBrainComponent } from './drug-brain/drug-brain.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { UploadModule } from "./upload/upload.module";
 
 @NgModule({
   declarations: [
@@ -40,6 +43,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     DrugBrainComponent,
   ],
   imports: [
+    UploadModule,
+    MatRippleModule,
     BrowserModule,
     BrowserAnimationsModule,
     LayoutModule,
@@ -59,7 +64,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatFormFieldModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    HttpClientModule,
+
   ],
   providers: [
     { provide: APP_BASE_HREF, useValue: '/home' },

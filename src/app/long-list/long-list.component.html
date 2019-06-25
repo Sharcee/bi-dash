@@ -6,13 +6,13 @@
     <mat-card>
       <mat-card-header>
         <mat-card-title>Longlist Generator</mat-card-title>
-        <mat-card-subtitle>The tool everyone needs but not the one they deserve</mat-card-subtitle>
+        <mat-card-subtitle>Format: <i>Client_PROJECT_N 4 LL for Upload_MM.DD.YY.xlsx</i></mat-card-subtitle>
       </mat-card-header>
 
       <mat-card-content>
         <mat-vertical-stepper linear>
 
-          <!-- Client Name -->
+
           <div>
             <mat-step [stepControl]="company">
               <form action="" [formGroup]="listForm">
@@ -25,7 +25,7 @@
             </mat-step>
           </div>
 
-          <!-- Project Name -->
+
           <div>
             <mat-step [stepControl]="project">
               <form action="" [formGroup]="listForm">
@@ -39,7 +39,7 @@
             </mat-step>
           </div>
 
-          <!-- Project Date -->
+
           <div>
             <mat-step [stepControl]="date">
               <form action="" [formGroup]="listForm">
@@ -58,13 +58,14 @@
           <!-- Upload Excel File -->
           <div>
             <mat-step [stepControl]="file">
-              <form action="" [formGroup]="listForm">
+              <form action="uploadExcelFile()" [formGroup]="listForm">
                 <ng-template matStepLabel>Upload Excel File</ng-template>
                 <div>
                   <!-- <button mat-button (click)="openInput()">Select File to Upload</button> -->
-                  <input id="fileInput" type="file" (change)="uploadExcelFile($event.target.files)" name="file"
-                    accept=".csv,.xlsx" formControlName="file">
+                  <!-- <input id="fileInput" type="file" (change)="uploadExcelFile($event.target.files)" name="file"
+                    accept=".csv,.xlsx" formControlName="file"> -->
                   <button mat-button matStepperPrevious>Back</button>
+                  <app-upload></app-upload>
                 </div>
               </form>
             </mat-step>
@@ -88,7 +89,7 @@
       </mat-card-header>
       <img mat-card-image src="../../assets/xlformat.PNG">
       <mat-card-actions>
-        <button mat-button>Download Template</button>
+        <button mat-button (click)="downloadFile()">Download Template</button>
       </mat-card-actions>
     </mat-card>
   </div>
